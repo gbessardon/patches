@@ -30,3 +30,13 @@ def cover_fraction(filename):
             seafrac.append(float(d.split(',')[5]))
     return(fieldnames,np.array(covernum),covername,np.array(cityfrac),np.array(vegfrac),
            np.array(inwaterfrac),np.array(seafrac))
+
+
+
+
+def convert_to_cover_fraction(DSG,cityfrac):
+    Tfrac=np.zeros(DSG.shape)
+    for i, c  in enumerate(cityfrac):
+        idi=np.where(DSG==i+1)
+        Tfrac[idi]=c
+    return(Tfrac)
